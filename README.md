@@ -4,7 +4,7 @@ platforms: javascript
 author: rajputam
 ---
 
-# Azure Media Services: Google Analytics Plugin for Azure Media Player
+# Media Services: Google Analytics Plugin for Azure Media Player
 
 Google Analytics plugin for Azure Media Player
 
