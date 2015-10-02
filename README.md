@@ -50,7 +50,7 @@ var myOptions = {
     plugins: {
         ga: {
             'eventsToTrack': ['playerConfig', 'loaded', 'playTime', 'percentsPlayed', 'start', 'end', 'play', 'pause', 'error', 'buffering', 'fullscreen', 'seek', 'bitrate'],
-            'debug': true
+            'debug': false
         }
     }
 };
@@ -61,7 +61,7 @@ myPlayer.src([{ src: "//amssamples.streaming.mediaservices.windows.net/91492735-
 OR
 
 ```html
-<video id="azuremediaplayer" class="azuremediaplayer amp-default-skin amp-big-play-centered" controls autoplay width="640" height="400" poster="" data-setup='{"nativeControlsForTouch": false, "plugins": {"ga":{ "eventsToTrack": ["playerConfig", "loaded", "playTime", "percentsPlayed", "start", "end", "play", "pause", "error", "buffering", "fullscreen", "seek", "bitrate"], "debug": true}}}' tabindex="0">
+<video id="azuremediaplayer" class="azuremediaplayer amp-default-skin amp-big-play-centered" controls autoplay width="640" height="400" poster="" data-setup='{"nativeControlsForTouch": false, "plugins": {"ga":{ "eventsToTrack": ["playerConfig", "loaded", "playTime", "percentsPlayed", "start", "end", "play", "pause", "error", "buffering", "fullscreen", "seek", "bitrate"], "debug": false}}}' tabindex="0">
     <source src="http://amssamples.streaming.mediaservices.windows.net/91492735-c523-432b-ba01-faba6c2206a2/AzureMediaServicesPromo.ism/manifest" type="application/vnd.ms-sstr+xml" />
     <p class="amp-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that supports HTML5 video</p>
 </video>
@@ -71,7 +71,7 @@ video>
 The plugin will take in priority options provided in the javascript, followed by the ones provided in html and finally the defaults.
 
 ##Google Analytics Dashboard
-The following Dashboards are created for your convenience, however you are more than welcome to create your own Dashboard inside of Google Analytics.  To use the provided dashboards, simply click on the URLs below, and when prompted, attach the correct data set associated with the data that is being collected in Azure Media Player.  
+The following dashboards are created for your convenience, however you are more than welcome to create your own dashboard inside of Google Analytics.  To use the provided dashboards, simply click on the URLs below, and when prompted, attach the correct data set associated with the data that is being collected in Azure Media Player.  
 
 - [Azure Media Player - Demographics and Usage](https://www.google.com/analytics/web/template?uid=IU1Ptp-LSpmb-OgzGzLViA)
 - [Azure Media Player - Audience Engagement](https://www.google.com/analytics/web/template?uid=9lMJFwqnSLaBuCTig16BTQ)
@@ -81,7 +81,8 @@ The following options are supported:
 
 ###eventLabel
 
-This is the ```label``` sent to GA. If you don't know what it is please check [GA's doc](https://developers.google.com/analytics/devguides/collection/gajs/eventTrackerGuide)
+This is the ```label``` sent to GA. If you don't know what it is please check [GA's doc](https://developers.google.com/analytics/devguides/collection/gajs/eventTrackerGuide).
+
 **default:** source of the video path so if the path is ```http://amssamples.streaming.mediaservices.windows.net/91492735-c523-432b-ba01-faba6c2206a2/AzureMediaServicesPromo.ism/manifest(format=mpd-time-csf)``` the label would be ```amssamples.streaming.mediaservices.windows.net/91492735-c523-432b-ba01-faba6c2206a2/AzureMediaServicesPromo.ism/manifest```
 
 ###debug
