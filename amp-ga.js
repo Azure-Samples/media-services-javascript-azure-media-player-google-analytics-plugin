@@ -96,6 +96,21 @@
                     this.downloadedChunks += 1;
                     this.sumBitrate += player.currentDownloadBitrate();
                     if (this.videoBuffer) {
+                        if (player.currentDownloadBitrate() >= 8000000){
+                            sendEventBeacon("DownloadBitrateMbps", "8+", false, player.currentDownloadBitrate());
+                        }else if (player.currentDownloadBitrate() >= 5000000) {
+                            sendEventBeacon("DownloadBitrateMbps", "5-8", false, player.currentDownloadBitrate());
+                        } else if (player.currentDownloadBitrate() >= 3000000) {
+                            sendEventBeacon("DownloadBitrateMbps", "3-5", false, player.currentDownloadBitrate());
+                        } else if (player.currentDownloadBitrate() >= 2000000) {
+                            sendEventBeacon("DownloadBitrateMbps", "2-3", false, player.currentDownloadBitrate());
+                        } else if (player.currentDownloadBitrate() >= 1000000) {
+                            sendEventBeacon("DownloadBitrateMbps", "1-2", false, player.currentDownloadBitrate());
+                        } else if (player.currentDownloadBitrate() >= 500000) {
+                            sendEventBeacon("DownloadBitrateMbps", "0.5-1", false, player.currentDownloadBitrate());
+                        } else if (player.currentDownloadBitrate() >= 0) {
+                            sendEventBeacon("DownloadBitrateMbps", "0-0.5", false, player.currentDownloadBitrate());
+                        }
                         sendEventBeacon("DownloadBitrate", player.currentDownloadBitrate(), false, player.currentDownloadBitrate());
                         this.sumPerceivedBandwidth += this.videoBuffer.perceivedBandwidth;
                         this.sumMeasuredBandwidth += this.videoBuffer.downloadCompleted.measuredBandwidth;
