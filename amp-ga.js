@@ -1,5 +1,6 @@
 ﻿/*
 * Google Analytics plugin for Azure Media Player - Microsoft Sample Code - Copyright (c) 2015 - Licensed MIT
+* Attribution: "AMP-Analytics" - Copyright (c) 2015 Juan Pablo - Licensed MIT
 * Attribution: "videojs-ga - v0.4.2" - Copyright (c) 2015 Michael Bensoussan - Licensed MIT
 */
 
