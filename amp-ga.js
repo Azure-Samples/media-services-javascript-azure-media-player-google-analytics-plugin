@@ -200,7 +200,7 @@
                 } else {
                     sendEventBeacon('isLive', "VOD", false);
                 }
-                if (myPlayer.currentProtectionInfo()) {
+                if (player.currentProtectionInfo()) {
                     sendEventBeacon("Protection", player.currentProtectionInfo()[0].type, false);
                 } else {
                     sendEventBeacon("Protection", "Unencrypted", false);
