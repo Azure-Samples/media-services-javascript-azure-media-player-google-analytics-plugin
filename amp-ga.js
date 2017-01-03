@@ -360,8 +360,17 @@
         }
 
         function sendEventBeacon(category, action, nonInteraction, value) {
+            //check if Google Tag Manager is initialized on the page
+            if (window['google_tag_manager']) {
+                //Send event data to the data layer. Do not forget to create an Event Tag (Fire On - trackEvent)
+                dataLayer.push({ 'event' : 'trackEvent', 'eventCategory' : category, 'eventAction' : action, 'eventLabel' : eventLabel, 'eventValue' : value });
+                 if (options.debug) {
+                        console.log("sent to gtm...'send', 'event', {'eventCategory': " + category + ", 'eventAction': " + action + ", 'eventLabel': " + eventLabel + ",'eventValue': " + value + ");
+                    }
+                //Todo: add nonInteraction.
+            }
             //check if Universal API for Google Analytics is initialized on the page
-            if (window.ga || window.ga2) {
+            else if (window.ga || window.ga2) {
                 //send event data to a the first google analytics account
                 if (window.ga) {
                     ga('send', 'event', {
