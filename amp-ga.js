@@ -365,7 +365,7 @@
                 //Send event data to the data layer. Do not forget to create an Event Tag (Fire On - trackEvent)
                 dataLayer.push({ 'event' : 'trackEvent', 'eventCategory' : category, 'eventAction' : action, 'eventLabel' : eventLabel, 'eventValue' : value });
                  if (options.debug) {
-                        console.log("sent to gtm...'send', 'event', {'eventCategory': " + category + ", 'eventAction': " + action + ", 'eventLabel': " + eventLabel + ",'eventValue': " + value + "});
+                        console.log("sent to gtm...'send', 'event', {'eventCategory': " + category + ", 'eventAction': " + action + ", 'eventLabel': " + eventLabel + ",'eventValue': " + value + "}");
                     }
                 //Todo: add nonInteraction.
             }
