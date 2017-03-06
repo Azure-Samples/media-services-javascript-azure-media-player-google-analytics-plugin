@@ -360,8 +360,16 @@
         }
 
         function sendEventBeacon(category, action, nonInteraction, value) {
+            //check if Google Tag Manager is initialized on the page
+            if (window['google_tag_manager']) {
+                //Send event data to the data layer. Do not forget to create an Event Tag (Fire On - trackEvent) and add noninteraction.
+                dataLayer.push({ 'event' : 'trackEvent', 'eventCategory' : category, 'eventAction' : action, 'eventLabel' : eventLabel, 'eventValue' : value });
+                 if (options.debug) {
+                        console.log("sent to gtm...'send', 'event', {'eventCategory': " + category + ", 'eventAction': " + action + ", 'eventLabel': " + eventLabel + ",'eventValue': " + value + "}");
+                    }
+            }
             //check if Universal API for Google Analytics is initialized on the page
-            if (window.ga || window.ga2) {
+            else if (window.ga || window.ga2) {
                 //send event data to a the first google analytics account
                 if (window.ga) {
                     ga('send', 'event', {
@@ -400,8 +408,15 @@
         };
 
         function sendErrorBeacon(code, fatal) {
+            if (window['google_tag_manager']) {
+            //Send event data to the data layer. Do not forget to create an Event Tag (Fire On - amdException and sent an exception)
+            dataLayer.push({ 'event' : 'ampException', 'exDescription': code, 'exFatal': fatal,'appName': 'AMP','appVersion': player.getAmpVersion() });
+                  if (options.debug) {
+                         console.log("sent to ga...'send', 'exception', {'exDescription': " + code + ", 'exFatal': " + fatal + ", 'appName': 'AMP','appVersion': " + player.getAmpVersion());                  
+                  } 
+            }
             //Error tracking seems only to be available in GA Universal API
-            if (window.ga || window.ga2) {
+            else if (window.ga || window.ga2) {
                 if (window.ga) {
                     ga('send', 'exception', {
                         'exDescription': code,
