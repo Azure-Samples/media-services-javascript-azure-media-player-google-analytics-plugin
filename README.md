@@ -1,7 +1,12 @@
 ---
-services: media-services
-platforms: javascript
-author: rajputam
+page_type: sample
+languages:
+- javascript
+- html
+products:
+- azure
+description: "Google Analytics plugin for Azure Media Player"
+urlFragment: media-services-javascript-azure-media-player-google-analytics-plugin
 ---
 
 # Media Services: Google Analytics Plugin for Azure Media Player
